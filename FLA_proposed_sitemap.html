@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sitemap — Fleet Leasing Australia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface-hover: #f9f9fb;
+    --border: rgba(0,0,0,0.07);
+    --line: rgba(0,0,0,0.1);
+    --text-primary: #0b1220;
+    --text-secondary: #374151;
+    --text-tertiary: #4b5563;
+    --accent: #0071e3;
+    --accent-soft: rgba(0,113,227,0.08);
+    --green: #34c759;
+    --green-soft: rgba(52,199,89,0.1);
+    --orange: #ff9f0a;
+    --orange-soft: rgba(255,159,10,0.1);
+    --purple: #8e5cf5;
+    --purple-soft: rgba(142,92,245,0.09);
+    --red: #ff3b30;
+    --red-soft: rgba(255,59,48,0.08);
+    --row-h: 40px;
+    --col-w: 28px;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 60px 24px 80px; }
+
+  header { margin-bottom: 36px; }
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  h1 { font-size: 29px; font-weight: 600; color: var(--text-primary); letter-spacing: -0.022em; line-height: 1.2; }
+  .subtitle { margin-top: 4px; font-size: 14px; color: var(--text-secondary); }
+
+  /* ── Stat pills ── */
+  .stats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+  .stat-pill {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 100px; padding: 5px 12px;
+    display: flex; align-items: center; gap: 5px;
+    font-size: 13px; color: var(--text-secondary);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .stat-pill strong { color: var(--text-primary); font-weight: 600; }
+  .stat-pill.pill-404 {
+    background: var(--red-soft);
+    border-color: rgba(255,59,48,0.2);
+    color: #c0291f;
+  }
+  .stat-pill.pill-404 strong { color: var(--red); }
+
+  /* ── Card ── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.04);
+    animation: fadeUp 0.35s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Rows ── */
+  .row {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    min-height: var(--row-h);
+    transition: background 0.1s;
+  }
+  .row:last-child { border-bottom: none; }
+  .row:hover { background: var(--surface-hover); }
+  .row.is-404 { background: rgba(255,59,48,0.018); }
+  .row.is-404:hover { background: rgba(255,59,48,0.035); }
+
+  .cell { width: var(--col-w); flex-shrink: 0; position: relative; }
+  .cell svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+  .row-body { flex: 1; min-width: 0; display: flex; align-items: center; padding: 0 16px 0 0; }
+
+  /* ── Icons ── */
+  .icon {
+    width: 22px; height: 22px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-right: 10px; margin-left: 2px;
+  }
+  .icon-root     { background: var(--accent-soft); margin-left: 16px; }
+  .icon-section  { background: var(--green-soft); }
+  .icon-page     { background: var(--bg); border: 1px solid rgba(0,0,0,0.09); }
+  .icon-post     { background: var(--orange-soft); }
+  .icon-template { background: var(--purple-soft); }
+
+  /* ── Row label + link ── */
+  .row-label { flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; overflow: hidden; }
+
+  .row-link {
+    display: flex; align-items: center; gap: 8px;
+    min-width: 0; overflow: hidden;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 1px 3px;
+    margin-left: -3px;
+    transition: background 0.12s;
+  }
+  .row-link:hover { background: rgba(0,113,227,0.07); }
+  .row-link:hover .row-name { color: var(--accent); }
+  .row-link:hover .row-name.dim { color: var(--accent); }
+  .row-link:hover .row-name.tmpl { color: #6b3fd4; }
+
+  .row-name {
+    font-size: 14px; font-weight: 500; color: var(--text-primary);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    letter-spacing: -0.01em;
+  }
+  .row-name.dim  { font-weight: 400; color: var(--text-secondary); }
+  .row-name.tmpl { font-style: italic; color: var(--purple); }
+
+  .row-path { font-size: 12.5px; color: var(--text-tertiary); white-space: nowrap; flex-shrink: 0; }
+  .row-path.tmpl { color: var(--purple); opacity: 0.55; }
+
+  /* External link icon — shows on hover */
+  .link-icon {
+    opacity: 0;
+    flex-shrink: 0;
+    transition: opacity 0.12s;
+  }
+  .row-link:hover .link-icon { opacity: 1; }
+
+  /* ── Type badges ── */
+  .badge {
+    font-size: 11.5px; font-weight: 600;
+    padding: 2px 8px; border-radius: 100px;
+    flex-shrink: 0; margin-left: 8px; white-space: nowrap;
+  }
+  .b-root     { background: var(--accent-soft); color: var(--accent); }
+  .b-section  { background: var(--green-soft); color: #248a3d; }
+  .b-page     { background: rgba(0,0,0,0.04); color: var(--text-secondary); border: 1px solid rgba(0,0,0,0.07); }
+  .b-post     { background: var(--orange-soft); color: #9a5200; }
+  .b-template { background: var(--purple-soft); color: #5b35b0; }
+
+  /* ── Status ── */
+  .status {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11.5px; font-weight: 600;
+    padding: 2px 8px; border-radius: 100px;
+    flex-shrink: 0; margin-left: 6px; white-space: nowrap;
+  }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .s-live { background: rgba(52,199,89,0.1); color: #1a7a34; border: 1px solid rgba(52,199,89,0.25); }
+  .s-live .status-dot { background: var(--green); }
+  .s-404  { background: var(--red-soft); color: #c0291f; border: 1px solid rgba(255,59,48,0.2); }
+  .s-404  .status-dot { background: var(--red); }
+
+  /* ── Template callout ── */
+  .callout-row {
+    display: flex; align-items: stretch;
+    border-bottom: 1px solid var(--border);
+    background: rgba(142,92,245,0.025);
+  }
+  .callout-body { flex: 1; padding: 10px 16px 10px 4px; display: flex; align-items: flex-start; }
+  .callout-box {
+    flex: 1; font-size: 12.5px; color: #4c1d95;
+    background: var(--purple-soft); border: 1px solid rgba(142,92,245,0.2);
+    border-radius: 8px; padding: 9px 12px;
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.55;
+  }
+  .callout-box strong { font-weight: 600; color: #5236a8; display: block; margin-bottom: 1px; }
+  .callout-box code {
+    font-family: 'SF Mono', ui-monospace, monospace; font-size: 10px;
+    background: rgba(142,92,245,0.13); padding: 1px 5px; border-radius: 4px; color: #5236a8;
+  }
+
+  /* ── Legend ── */
+  .legend-wrap { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .legend-group { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .legend-label { font-size: 10.5px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; width: 60px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-secondary); }
+  .legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+
+  /* ── Tab bar ── */
+  .tab-bar-wrap {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 0 var(--border), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .tab-bar {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 14px 18px 13px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    font-family: inherit;
+    margin-bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text-secondary); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab-dot {
+    width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+  }
+
+  /* ── Tab panels ── */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Audit panel ── */
+  .audit-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+  .audit-header { margin-bottom: 36px; }
+  .audit-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 600px) {
+    .audit-grid { grid-template-columns: 1fr; }
+  }
+  .audit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .audit-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .audit-card h3 .a-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .audit-card p,
+  .audit-card ul {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.82;
+  }
+  .audit-card ul {
+    padding-left: 16px;
+    margin-top: 6px;
+  }
+  .audit-card li { margin-bottom: 4px; }
+  .audit-card.full { grid-column: 1 / -1; }
+  .audit-card code {
+    font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    background: rgba(0,0,0,0.04);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .audit-card .severity {
+    display: inline-flex;
+    font-size: 9.5px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 100px;
+    margin-left: 6px;
+  }
+  .sev-critical { background: var(--red-soft); color: var(--red); }
+  .sev-high { background: var(--orange-soft); color: #9a5200; }
+  .sev-medium { background: rgba(0,113,227,0.08); color: var(--accent); }
+
+  /* ── Proposed panel ── */
+  .proposed-header { margin-bottom: 36px; }
+  .changelog-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+  }
+  .changelog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .changelog-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .changelog-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .changelog-card p,
+  .changelog-card li {
+    color: var(--text-secondary);
+    font-size: 13.5px;
+    line-height: 1.75;
+  }
+  .changelog-card ul {
+    padding-left: 16px;
+    margin-top: 6px;
+  }
+  .changelog-card code {
+    font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    background: rgba(0,0,0,0.04);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  @media (max-width: 840px) {
+    .changelog-grid { grid-template-columns: 1fr; }
+  }
+  .redirect-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 24px 70px;
+  }
+  .redirect-table-wrap {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .redirect-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .redirect-table thead th {
+    text-align: left;
+    background: #f8f8fb;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .redirect-table tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--text-primary);
+  }
+  .redirect-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .redirect-table code {
+    font-family: 'SF Mono', ui-monospace, monospace;
+    font-size: 11.5px;
+    background: rgba(0,0,0,0.04);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .rtype {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .r301 { background: var(--accent-soft); color: var(--accent); }
+  .rkeep { background: rgba(52,199,89,0.12); color: #1a7a34; }
+</style>
+</head>
+<body>
+
+  <!-- Tab bar -->
+  <div class="tab-bar-wrap">
+    <div class="tab-bar">
+      <button class="tab-btn active" onclick="switchTab('current', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#aeaeb2"/></svg>
+        Current Sitemap
+      </button>
+      <button class="tab-btn" onclick="switchTab('audit', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#ff3b30"/></svg>
+        Audit &amp; Issues
+      </button>
+      <button class="tab-btn" onclick="switchTab('solutions', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#34c759"/></svg>
+        Solutions
+      </button>
+      <button class="tab-btn" onclick="switchTab('proposed', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#0071e3"/></svg>
+        Proposed Sitemap
+      </button>
+      <button class="tab-btn" onclick="switchTab('changelog', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#34c759"/></svg>
+        Change Log
+      </button>
+      <button class="tab-btn" onclick="switchTab('redirects', this)">
+        <svg class="tab-dot" viewBox="0 0 6 6"><circle cx="3" cy="3" r="3" fill="#ff9f0a"/></svg>
+        Redirect Map
+      </button>
+    </div>
+  </div>
+
+  <!-- Current sitemap panel -->
+  <div class="tab-panel active" id="panel-current">
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Site Architecture</div>
+    <h1>Sitemap</h1>
+    <div class="subtitle">fleetleasingaustralia.com.au</div>
+  </header>
+
+  <div class="stats">
+    <div class="stat-pill"><strong>28</strong> URLs</div>
+    <div class="stat-pill"><strong>9</strong> Sections</div>
+    <div class="stat-pill"><strong>8</strong> Blog posts</div>
+    <div class="stat-pill"><strong>500+</strong> Vehicle pages</div>
+    <div class="stat-pill"><strong>4</strong> Levels deep</div>
+    <div class="stat-pill pill-404"><strong>5</strong> pages returning 404</div>
+  </div>
+
+  <div class="card">
+
+    <!-- ROOT — Live -->
+    <div class="row">
+      <div class="row-body">
+        <div class="icon icon-root">
+          <svg width="11" height="11" viewBox="0 0 11 11"><circle cx="5.5" cy="5.5" r="3.5" fill="#0071e3"/></svg>
+        </div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au" target="_blank" rel="noopener">
+            <span class="row-name">fleetleasingaustralia.com.au</span>
+            <span class="row-path">/</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-root">Root</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- VEHICLES section — 404 -->
+    <div class="row is-404">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/vehicles" target="_blank" rel="noopener">
+            <span class="row-name dim">vehicles</span>
+            <span class="row-path">/vehicles</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-404"><span class="status-dot"></span>404</span>
+      </div>
+    </div>
+
+    <!-- /vehicles/popular-models — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/vehicles/popular-models" target="_blank" rel="noopener">
+            <span class="row-name">popular-models</span>
+            <span class="row-path">/vehicles/popular-models</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- DEALS section — 404 -->
+    <div class="row is-404">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/deals" target="_blank" rel="noopener">
+            <span class="row-name dim">deals</span>
+            <span class="row-path">/deals</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-404"><span class="status-dot"></span>404</span>
+      </div>
+    </div>
+
+    <!-- /deals/limited-time — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/deals/limited-time" target="_blank" rel="noopener">
+            <span class="row-name">limited-time</span>
+            <span class="row-path">/deals/limited-time</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- RESOURCES section — 404 -->
+    <div class="row is-404">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources" target="_blank" rel="noopener">
+            <span class="row-name dim">resources</span>
+            <span class="row-path">/resources</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-404"><span class="status-dot"></span>404</span>
+      </div>
+    </div>
+
+    <!-- /resources/faqs — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/faqs" target="_blank" rel="noopener">
+            <span class="row-name">faqs</span>
+            <span class="row-path">/resources/faqs</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- /resources/blogs — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs" target="_blank" rel="noopener">
+            <span class="row-name">blogs</span>
+            <span class="row-path">/resources/blogs</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- Blog posts — all Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/fbt-exempt-vehicles-in-australia-the-full-list-and-how-businesses-benefit" target="_blank" rel="noopener">
+            <span class="row-name">fbt-exempt-vehicles-in-australia…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/the-ultimate-guide-to-commercial-vehicle-leasing-for-australian-businesses" target="_blank" rel="noopener">
+            <span class="row-name">the-ultimate-guide-to-commercial-vehicle-leasing…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/fleet-leasing-vs-buying-which-is-better-for-cash-flow-and-tax" target="_blank" rel="noopener">
+            <span class="row-name">fleet-leasing-vs-buying-which-is-better…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/how-salary-packaging-a-vehicle-works-for-tradies-and-sole-traders" target="_blank" rel="noopener">
+            <span class="row-name">how-salary-packaging-a-vehicle-works…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/can-you-novated-lease-a-dual-cab-ute-everything-you-need-to-know" target="_blank" rel="noopener">
+            <span class="row-name">can-you-novated-lease-a-dual-cab-ute…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/novated-lease-explained-how-australian-employees-can-drive-a-new-vehicle-tax-free" target="_blank" rel="noopener">
+            <span class="row-name">novated-lease-explained…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/commercial-van-leasing-guide-choosing-the-right-van-for-your-trade" target="_blank" rel="noopener">
+            <span class="row-name">commercial-van-leasing-guide…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-post"><svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 2.5h7M2 5h7M2 7.5h4.5" stroke="#ff9f0a" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/resources/blogs/hidden-costs-of-owning-a-work-ute-most-businesses-never-see-coming" target="_blank" rel="noopener">
+            <span class="row-name">hidden-costs-of-owning-a-work-ute…</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-post">Post</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- PRODUCTS section — 404 -->
+    <div class="row is-404">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/products" target="_blank" rel="noopener">
+            <span class="row-name dim">products</span>
+            <span class="row-path">/products</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-404"><span class="status-dot"></span>404</span>
+      </div>
+    </div>
+
+    <!-- /products/fleet-finance — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/products/fleet-finance" target="_blank" rel="noopener">
+            <span class="row-name">fleet-finance</span>
+            <span class="row-path">/products/fleet-finance</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- /products/business-finance — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/products/business-finance" target="_blank" rel="noopener">
+            <span class="row-name">business-finance</span>
+            <span class="row-path">/products/business-finance</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- INVENTORY — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/inventory" target="_blank" rel="noopener">
+            <span class="row-name">inventory</span>
+            <span class="row-path">/inventory</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- /inventory/{vehicle-slug} template — Live -->
+    <div class="row" style="background:rgba(142,92,245,0.025);">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-template">
+          <svg width="11" height="11" viewBox="0 0 11 11"><rect x="1.5" y="1.5" width="8" height="8" rx="1.5" fill="none" stroke="#8e5cf5" stroke-width="1.2"/><path d="M4 5.5h3M5.5 4v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/inventory/mazda-bt-50" target="_blank" rel="noopener">
+            <span class="row-name tmpl">{vehicle-slug}</span>
+            <span class="row-path tmpl">/inventory/{vehicle-slug}</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-template">Template</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- Template callout -->
+    <div class="callout-row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none" style="height:100%;"><line x1="13" y1="0" x2="13" y2="100%" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"></div>
+      <div class="callout-body">
+        <div class="callout-box">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px;"><circle cx="7" cy="7" r="5.5" stroke="#8e5cf5" stroke-width="1.2"/><path d="M7 6.5V9.5M7 4.5v.5" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div>
+            <strong>Dynamic template — 500+ pages follow this pattern</strong>
+            Each vehicle listing is generated from the same template. Example: <code>/inventory/mazda-bt-50</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPLORE — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/explore" target="_blank" rel="noopener">
+            <span class="row-name">explore</span>
+            <span class="row-path">/explore</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- EXPLORE-BODY — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/explore-body" target="_blank" rel="noopener">
+            <span class="row-name">explore-body</span>
+            <span class="row-path">/explore-body</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- ABOUT — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/about" target="_blank" rel="noopener">
+            <span class="row-name">about</span>
+            <span class="row-path">/about</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- /about/contact — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/about/contact" target="_blank" rel="noopener">
+            <span class="row-name">contact</span>
+            <span class="row-path">/about/contact</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- FAVOURITES section — Live -->
+    <div class="row">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/wishlist" target="_blank" rel="noopener">
+            <span class="row-name">favourites</span>
+            <span class="row-path">/wishlist</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+    <!-- SERVICES section — 404, last child of root -->
+    <div class="row is-404">
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/services" target="_blank" rel="noopener">
+            <span class="row-name dim">services</span>
+            <span class="row-path">/services</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-section">Section</span>
+        <span class="status s-404"><span class="status-dot"></span>404</span>
+      </div>
+    </div>
+
+    <!-- /services/consultation — Live -->
+    <div class="row">
+      <div class="cell"></div>
+      <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+      <div class="row-body">
+        <div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div>
+        <div class="row-label">
+          <a class="row-link" href="https://fleetleasingaustralia.com.au/services/consultation" target="_blank" rel="noopener">
+            <span class="row-name">consultation</span>
+            <span class="row-path">/services/consultation</span>
+            <svg class="link-icon" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 8L8 2M5 2h3v3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <span class="badge b-page">Page</span>
+        <span class="status s-live"><span class="status-dot"></span>Live</span>
+      </div>
+    </div>
+
+  </div><!-- /card -->
+
+  <div class="legend-wrap">
+    <div class="legend-group">
+      <span class="legend-label">Type</span>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Root</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Section (grouping node)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--text-tertiary)"></div> Page</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> Blog post</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> Dynamic template</div>
+    </div>
+    <div class="legend-group">
+      <span class="legend-label">Status</span>
+      <div class="legend-item"><span class="status s-live" style="margin:0;"><span class="status-dot"></span>Live</span>&nbsp; Has content, returns 200</div>
+      <div class="legend-item"><span class="status s-404" style="margin:0;"><span class="status-dot"></span>404</span>&nbsp; No page exists at this path</div>
+    </div>
+  </div>
+
+</div>
+  </div>
+
+  <!-- Audit & issues panel -->
+  <div class="tab-panel" id="panel-audit">
+    <div class="audit-wrap">
+      <header class="audit-header">
+        <div class="eyebrow">SEO &amp; Architecture Audit</div>
+        <h1>Current Issues</h1>
+        <div class="subtitle">
+          fleetleasingaustralia.com.au — 8 key problems affecting findability,
+          clarity, and conversions
+        </div>
+      </header>
+
+      <div class="audit-grid">
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: var(--red-soft)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <path
+                  d="M6 2v4M6 8v1"
+                  stroke="#ff3b30"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            5 Section-Level 404s
+            <span class="severity sev-critical">Critical</span>
+          </h3>
+          <p>
+            Some top-level pages do not exist, but their child pages do. This is
+            confusing for users and search engines, and it weakens page
+            visibility.
+          </p>
+          <ul>
+            <li>
+              <code>/vehicles</code> → 404 (child:
+              <code>/vehicles/popular-models</code>)
+            </li>
+            <li>
+              <code>/deals</code> → 404 (child:
+              <code>/deals/limited-time</code>)
+            </li>
+            <li><code>/resources</code> → 404 (children: faqs, blogs)</li>
+            <li>
+              <code>/products</code> → 404 (children: fleet-finance,
+              business-finance)
+            </li>
+            <li>
+              <code>/services</code> → 404 (child:
+              <code>/services/consultation</code>)
+            </li>
+          </ul>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: var(--orange-soft)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <path
+                  d="M2 6h8M6 2v8"
+                  stroke="#ff9f0a"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            Flat &amp; Fragmented Hierarchy
+            <span class="severity sev-high">High</span>
+          </h3>
+          <p>
+            Key pages are spread out without a clear grouping. People and search
+            engines have a harder time understanding how pages relate to each
+            other.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: var(--orange-soft)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <rect
+                  x="2"
+                  y="2"
+                  width="8"
+                  height="8"
+                  rx="1.5"
+                  fill="none"
+                  stroke="#ff9f0a"
+                  stroke-width="1.3"
+                /></svg
+            ></span>
+            Orphaned &amp; Ambiguous Pages
+            <span class="severity sev-high">High</span>
+          </h3>
+          <p>
+            <code>/explore</code> and <code>/explore-body</code> are unclear.
+            The names do not explain what users will get, so these pages should
+            be renamed or merged into clearer sections.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: rgba(0, 113, 227, 0.08)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="4"
+                  fill="none"
+                  stroke="#0071e3"
+                  stroke-width="1.3"
+                /></svg
+            ></span>
+            Missing SEO Hub Pages
+            <span class="severity sev-medium">Medium</span>
+          </h3>
+          <p>
+            Important topics are only covered in blog posts. You need clear main
+            pages for core services and categories so customers can find them
+            faster.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: var(--orange-soft)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <path
+                  d="M3 9L9 3"
+                  stroke="#ff9f0a"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            Blog Depth = 4 Levels <span class="severity sev-high">High</span>
+          </h3>
+          <p>
+            Blog posts are buried in a deep path
+            (<code>/resources/blogs/{slug}</code>). A flatter blog path usually
+            makes posts easier to find, easier to link internally, and easier to
+            keep visible in search.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: rgba(0, 113, 227, 0.08)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <path
+                  d="M2 4h8M2 6h6M2 8h4"
+                  stroke="#0071e3"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            No Defined Content Strategy
+            <span class="severity sev-medium">Medium</span>
+          </h3>
+          <p>
+            You have blog content, but not a clear plan that guides readers from
+            information to enquiry. Supporting pages are missing.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: rgba(0, 113, 227, 0.08)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <path
+                  d="M4 3v6M8 3v6M2 5h8M2 7h8"
+                  stroke="#0071e3"
+                  stroke-width="1.1"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            500+ Vehicle Pages Lack Faceted Structure
+            <span class="severity sev-medium">Medium</span>
+          </h3>
+          <p>
+            500+ vehicle pages are in one flat set. Adding category pages (for
+            example, utes and vans) will make browsing easier and improve search
+            visibility.
+          </p>
+        </div>
+
+        <div class="audit-card">
+          <h3>
+            <span class="a-icon" style="background: rgba(0, 113, 227, 0.08)"
+              ><svg width="12" height="12" viewBox="0 0 12 12">
+                <circle
+                  cx="6"
+                  cy="6"
+                  r="4"
+                  fill="none"
+                  stroke="#0071e3"
+                  stroke-width="1.3"
+                />
+                <path
+                  d="M6 4v2.5l1.5 1"
+                  stroke="#0071e3"
+                  stroke-width="1.1"
+                  stroke-linecap="round"
+                /></svg
+            ></span>
+            Missing Trust &amp; Conversion Pages
+            <span class="severity sev-medium">Medium</span>
+          </h3>
+          <p>
+            Trust-building pages are missing (testimonials, case studies,
+            industry pages, tools). These pages usually help users decide and
+            convert.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Solutions panel -->
+  <div class="tab-panel" id="panel-solutions">
+    <div class="audit-wrap">
+      <div class="audit-header">
+        <div class="eyebrow">Architecture Direction</div>
+        <h1>Solutions</h1>
+        <div class="subtitle">Site Architecture Rationalization - Summary</div>
+      </div>
+
+      <div class="audit-grid">
+        <div class="audit-card full">
+          <h3>Why These Changes Are Happening</h3>
+          <p>The old structure had several practical problems:</p>
+          <ul>
+            <li>Top-level pages that did not exist (<code>/vehicles</code>, <code>/services</code>, <code>/products</code>, <code>/deals</code>)</li>
+            <li>Pages trying to do too many things at once (for example, <code>/explore</code>)</li>
+            <li>Unnecessary nesting (for example, <code>/about/contact</code>)</li>
+            <li>Marketing campaigns mixed into core site structure</li>
+            <li>No clear rules for filter URLs</li>
+          </ul>
+          <p>This update is designed to:</p>
+          <ul>
+            <li>Remove fake/empty hierarchy</li>
+            <li>Match URLs to real business categories</li>
+            <li>Keep browsing structure separate from filters</li>
+            <li>Keep campaigns separate from inventory structure</li>
+            <li>Set clear long-term rules</li>
+          </ul>
+          <p>In short: this moves the website from folder-driven structure to user-intent structure.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>Problems: Artificial Section Hubs</h3>
+          <p>Some parent pages looked important but had no real content.</p>
+          <p>That led to:</p>
+          <ul>
+            <li>Wasted search-engine attention</li>
+            <li>Confusing site structure</li>
+            <li>Weak internal-link signals</li>
+          </ul>
+        </div>
+
+        <div class="audit-card">
+          <h3>Problems: Mixed Intent Pages</h3>
+          <p>Pages like <code>/explore</code> mixed brand browsing, body-type browsing, and filters in one place. This made the page purpose unclear.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>Problems: Campaign Confusion</h3>
+          <p>"Limited Time" was treated in different ways (folder, filter, and page). That blurred the line between structure and marketing.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>Problems: Uncontrolled Filter States</h3>
+          <p>Without clear filter rules, too many similar URLs can appear. That can create duplicates and make it harder for search engines to pick the right page.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>SEO, Crawling, and Indexing: Crawl Waste</h3>
+          <p>Search engines can spend time on low-value pages (empty hubs, extra folders, endless filters) instead of key pages.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>SEO, Crawling, and Indexing: Duplicate Content Risk</h3>
+          <p>Many filter combinations can produce near-identical pages, which spreads ranking strength too thin.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>SEO, Crawling, and Indexing: Diluted Authority</h3>
+          <p>When one page tries to cover too much, no topic becomes strong enough. Clear topic sections usually perform better.</p>
+        </div>
+
+        <div class="audit-card">
+          <h3>SEO, Crawling, and Indexing: Structural Instability</h3>
+          <p>If temporary campaigns are built into core URL structure, future updates become harder and riskier.</p>
+        </div>
+
+        <div class="audit-card full">
+          <h3>What Is Improving</h3>
+          <p><strong>1. Clear Main Structure</strong></p>
+          <ul>
+            <li><code>/inventory/{brand}/{model}</code></li>
+            <li><code>/inventory/{brand}</code></li>
+            <li><code>/inventory/{body-slug}</code></li>
+            <li><code>/brands</code> and <code>/body-types</code> as directory pages only</li>
+            <li>Dedicated finance sections</li>
+            <li>Campaign page (<code>/deals</code>)</li>
+          </ul>
+          <p>Each page now has one clear purpose.</p>
+          <p><strong>2. Clear Filter Rules</strong></p>
+          <ul>
+            <li>Filters are UX-only</li>
+            <li>Filtered states are noindex</li>
+            <li>Canonical back to base pages</li>
+            <li>No parameter URLs in sitemap</li>
+            <li>No multi-primary combinations</li>
+          </ul>
+          <p>This keeps search results cleaner and avoids duplicate pages.</p>
+          <p><strong>3. Stronger Topic Grouping</strong></p>
+          <ul>
+            <li>Brand authority</li>
+            <li>Body-type authority</li>
+            <li>Finance product clusters</li>
+            <li>Campaign acquisition surface</li>
+          </ul>
+          <p><strong>4. Clear Campaign Separation</strong></p>
+          <p><code>/deals</code> becomes a dedicated campaign page, while filter options stay as browsing tools.</p>
+        </div>
+
+        <div class="audit-card full">
+          <h3>Improved User Experience</h3>
+          <p><strong>1. Reduced Cognitive Load</strong></p>
+          <p>Users can choose a clear path: Inventory, Brand Directory, Body Type Directory, Finance, or Limited-Time.</p>
+          <p><strong>2. Clear Context Locking</strong></p>
+          <p>From <code>/brands</code>, users route to <code>/inventory/toyota</code>. From <code>/body-types</code>, users route to <code>/inventory/suv</code>. This keeps context clear without extra SEO subpaths.</p>
+          <p><strong>3. Campaign Clarity</strong></p>
+          <p>Limited-time offers are easy to find, without disrupting normal browsing.</p>
+          <p><strong>4. Logical Vehicle Detail Structure</strong></p>
+          <p>Each model has one main page: <code>/inventory/{brand}/{model}</code>. Variants can live on that same page, which avoids fragmentation.</p>
+        </div>
+
+        <div class="audit-card full">
+          <h3>Future Proofing</h3>
+          <p><strong>1. Keep Attributes Out of Core URLs</strong></p>
+          <p>Use cases (for example, Passenger vs Commercial) stay as filters, not folders. This avoids duplication.</p>
+          <p><strong>2. Flexible Growth</strong></p>
+          <p>You can add new brands, new body types, new finance products, and new campaigns without restructuring core URLs.</p>
+          <p><strong>3. No Forced Migrations</strong></p>
+          <p>Because the structure is cleaner, future redesigns should need fewer redirects and less rework.</p>
+          <p><strong>4. Scalable SEO Strategy</strong></p>
+          <p>This setup supports steady growth in content, categories, and campaigns without breaking structure.</p>
+        </div>
+
+        <div class="audit-card full">
+          <h3>Final Strategic Outcome</h3>
+          <p>The site moves from a folder-driven structure to a clearer, intent-led structure that is easier to grow.</p>
+          <p>The result is:</p>
+          <ul>
+            <li>Better crawl efficiency</li>
+            <li>Cleaner indexation</li>
+            <li>Stronger topical authority</li>
+            <li>Clearer user journeys</li>
+            <li>Reduced long-term structural risk</li>
+            <li>Improved marketing flexibility</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proposed sitemap panel -->
+  <div class="tab-panel" id="panel-proposed">
+    <div class="page">
+      <div class="proposed-header">
+        <div class="eyebrow">Site Architecture</div>
+        <h1>Proposed Sitemap</h1>
+        <div class="subtitle">fleetleasingaustralia.com.au — revised URL architecture</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-pill"><strong>29</strong> URLs</div>
+        <div class="stat-pill"><strong>8</strong> Sections</div>
+        <div class="stat-pill"><strong>4</strong> Dynamic templates</div>
+        <div class="stat-pill"><strong>500+</strong> Inventory pages</div>
+        <div class="stat-pill"><strong>4</strong> Levels deep</div>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div class="row-body">
+            <div class="icon icon-root">
+              <svg width="11" height="11" viewBox="0 0 11 11"><circle cx="5.5" cy="5.5" r="3.5" fill="#0071e3"/></svg>
+            </div>
+            <div class="row-label">
+              
+                <span class="row-name">fleetleasingaustralia.com.au</span>
+                <span class="row-path">/</span>
+              
+            </div>
+            <span class="badge b-root">Root</span>
+            
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+            <div class="row-label"><span class="row-name">inventory</span><span class="row-path">/inventory</span></div>
+            <span class="badge b-section">Section</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-template"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1.5" y="1.5" width="8" height="8" rx="1.5" fill="none" stroke="#8e5cf5" stroke-width="1.2"/><path d="M4 5.5h3M5.5 4v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="row-label"><span class="row-name tmpl">{brand-slug}</span><span class="row-path tmpl">/inventory/{brand-slug}</span></div>
+            <span class="badge b-template">Template</span>
+          </div>
+        </div>
+        <div class="callout-row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none" style="height:100%;"><line x1="13" y1="0" x2="13" y2="100%" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"></div>
+          <div class="callout-body">
+            <div class="callout-box"><div><strong>Brand directory policy</strong><code>/brands</code> is a directory page only. Clicking a brand routes to <code>/inventory/{brand-slug}</code>. Brand refinements <code>?body=... ?fuel=... ?trans=... ?price=...</code> are UX-only, noindex with canonical to <code>/inventory/{brand-slug}</code>.</div></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-template"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1.5" y="1.5" width="8" height="8" rx="1.5" fill="none" stroke="#8e5cf5" stroke-width="1.2"/><path d="M4 5.5h3M5.5 4v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="row-label"><span class="row-name tmpl">{brand-slug}/{model-slug}</span><span class="row-path tmpl">/inventory/{brand-slug}/{model-slug}</span></div>
+            <span class="badge b-template">Template</span>
+          </div>
+        </div>
+        <div class="callout-row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none" style="height:100%;"><line x1="13" y1="0" x2="13" y2="100%" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="callout-body">
+            <div class="callout-box">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px;"><circle cx="7" cy="7" r="5.5" stroke="#8e5cf5" stroke-width="1.2"/><path d="M7 6.5V9.5M7 4.5v.5" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <div>
+                <strong>Dynamic template — 500+ pages follow this pattern</strong>
+                Each vehicle listing is generated from the same template. Example: <code>/inventory/mazda/bt-50</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-template"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1.5" y="1.5" width="8" height="8" rx="1.5" fill="none" stroke="#8e5cf5" stroke-width="1.2"/><path d="M4 5.5h3M5.5 4v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="row-label"><span class="row-name tmpl">{body-slug}</span><span class="row-path tmpl">/inventory/{body-slug}</span></div>
+            <span class="badge b-template">Template</span>
+          </div>
+        </div>
+        <div class="callout-row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none" style="height:100%;"><line x1="13" y1="0" x2="13" y2="100%" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="cell"></div>
+          <div class="callout-body">
+            <div class="callout-box"><div><strong>Body-type directory policy</strong><code>/body-types</code> is a directory page only. Clicking a body type routes to <code>/inventory/{body-slug}</code>. Type refinements <code>?brand=... ?fuel=... ?trans=... ?price=...</code> are UX-only, noindex with canonical to <code>/inventory/{body-slug}</code>.</div></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+            <div class="row-label"><span class="row-name">brands</span><span class="row-path">/brands</span></div>
+            <span class="badge b-page">Directory</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+            <div class="row-label"><span class="row-name">body-types</span><span class="row-path">/body-types</span></div>
+            <span class="badge b-page">Directory</span>
+          </div>
+        </div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">popular-models</span><span class="row-path">/popular-models</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">limited time deals</span><span class="row-path">/deals</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div><div class="row-label"><span class="row-name">favourites</span><span class="row-path">/favourites</span></div><span class="badge b-section">Section</span></div></div>
+
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div><div class="row-label"><span class="row-name">fleet-finance</span><span class="row-path">/fleet-finance</span></div><span class="badge b-section">Overview/Comparison</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">operating-lease</span><span class="row-path">/fleet-finance/operating-lease</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">finance-lease</span><span class="row-path">/fleet-finance/finance-lease</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">chattel-mortgage</span><span class="row-path">/fleet-finance/chattel-mortgage</span></div><span class="badge b-page">Page/Template</span></div></div>
+
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div><div class="row-label"><span class="row-name">working-capital</span><span class="row-path">/working-capital</span></div><span class="badge b-section">Overview/Comparison</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">business-overdraft</span><span class="row-path">/working-capital/business-overdraft</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">line-of-credit</span><span class="row-path">/working-capital/line-of-credit</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">invoice-finance</span><span class="row-path">/working-capital/invoice-finance</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">trade-finance</span><span class="row-path">/working-capital/trade-finance</span></div><span class="badge b-page">Page/Template</span></div></div>
+
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div><div class="row-label"><span class="row-name">property-loans</span><span class="row-path">/property-loans</span></div><span class="badge b-section">Overview/Comparison</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">commercial-property-loan</span><span class="row-path">/property-loans/commercial-property-loan</span></div><span class="badge b-page">Page/Template</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">self-employed-residential-loan</span><span class="row-path">/property-loans/self-employed-residential-loan</span></div><span class="badge b-page">Page/Template</span></div></div>
+
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">consultation</span><span class="row-path">/consultation</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">contact</span><span class="row-path">/contact</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">about</span><span class="row-path">/about</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">testimonials</span><span class="row-path">/testimonials</span></div><span class="badge b-page">Page</span></div></div>
+        <div class="row"><div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="40" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div><div class="row-body"><div class="icon icon-page"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="2" y="1" width="7" height="9" rx="1.5" fill="#c7c7cc"/></svg></div><div class="row-label"><span class="row-name">faqs</span><span class="row-path">/faqs</span></div><span class="badge b-page">Page</span></div></div>
+
+        <div class="row">
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-section"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1" y="3" width="9" height="5" rx="1.5" fill="#34c759"/></svg></div>
+            <div class="row-label"><span class="row-name">blog</span><span class="row-path">/blog</span></div>
+            <span class="badge b-section">Section</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="cell"></div>
+          <div class="cell"><svg viewBox="0 0 28 40" preserveAspectRatio="none"><line x1="13" y1="0" x2="13" y2="20" stroke="var(--line)" stroke-width="1"/><line x1="13" y1="20" x2="25" y2="20" stroke="var(--line)" stroke-width="1"/></svg></div>
+          <div class="row-body">
+            <div class="icon icon-template"><svg width="11" height="11" viewBox="0 0 11 11"><rect x="1.5" y="1.5" width="8" height="8" rx="1.5" fill="none" stroke="#8e5cf5" stroke-width="1.2"/><path d="M4 5.5h3M5.5 4v3" stroke="#8e5cf5" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="row-label"><span class="row-name tmpl">{post-slug}</span><span class="row-path tmpl">/blog/{post-slug}</span></div>
+            <span class="badge b-template">Template</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend-wrap">
+        <div class="legend-group">
+          <span class="legend-label">Type</span>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div> Root</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Section</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--text-tertiary)"></div> Page</div>
+          <div class="legend-item"><div class="legend-dot" style="background:var(--purple)"></div> Template</div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Change log panel -->
+  <div class="tab-panel" id="panel-changelog">
+    <div class="changelog-wrap">
+      <div class="proposed-header">
+        <div class="eyebrow">Migration Notes</div>
+        <h1>Change Log</h1>
+        <div class="subtitle">Documented differences from Current Sitemap to Proposed Sitemap</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-pill"><strong>9</strong> removals</div>
+        <div class="stat-pill"><strong>8</strong> path moves</div>
+        <div class="stat-pill"><strong>10</strong> net new URLs</div>
+        <div class="stat-pill"><strong>4</strong> template definitions</div>
+      </div>
+
+      <div class="changelog-grid">
+        <div class="changelog-card">
+          <h3>Removed 404 Section Hubs</h3>
+          <ul>
+            <li><code>/vehicles</code></li>
+            <li><code>/deals</code></li>
+            <li><code>/resources</code></li>
+            <li><code>/products</code></li>
+            <li><code>/services</code></li>
+          </ul>
+        </div>
+
+        <div class="changelog-card">
+          <h3>Removed Ambiguous Root Pages</h3>
+          <ul>
+            <li><code>/explore</code></li>
+            <li><code>/explore-body</code></li>
+            <li><code>/inventory/mazda-bt-50</code> (sample path style retired)</li>
+            <li><code>/resources/blogs/{post-slug}</code> (moved under <code>/blog</code>)</li>
+          </ul>
+        </div>
+
+        <div class="changelog-card">
+          <h3>Moved / Consolidated Paths</h3>
+          <ul>
+            <li><code>/vehicles/popular-models</code> -> <code>/popular-models</code></li>
+            <li><code>/deals/limited-time</code> -> <code>/deals</code></li>
+            <li><code>/services/consultation</code> -> <code>/consultation</code></li>
+            <li><code>/about/contact</code> -> <code>/contact</code></li>
+            <li><code>/resources/faqs</code> -> <code>/faqs</code></li>
+            <li><code>/products/fleet-finance</code> -> <code>/fleet-finance</code> (+ detail children)</li>
+            <li><code>/products/business-finance</code> -> split into <code>/working-capital/*</code> and <code>/property-loans/*</code></li>
+            <li><code>/wishlist</code> -> <code>/favourites</code></li>
+          </ul>
+        </div>
+
+        <div class="changelog-card">
+          <h3>New Core Sections</h3>
+          <ul>
+            <li><code>/brands</code> (directory page; routes to <code>/inventory/{brand-slug}</code>)</li>
+            <li><code>/body-types</code> (directory page; routes to <code>/inventory/{body-slug}</code>)</li>
+            <li><code>/fleet-finance</code> (overview/comparison hub)</li>
+            <li><code>/working-capital</code> (overview/comparison hub)</li>
+            <li><code>/property-loans</code> (overview/comparison hub)</li>
+            <li><code>/testimonials</code></li>
+            <li><code>/blog</code> and <code>/blog/{post-slug}</code></li>
+          </ul>
+        </div>
+
+        <div class="changelog-card">
+          <h3>New Product Detail Pages</h3>
+          <ul>
+            <li><code>/fleet-finance/operating-lease</code></li>
+            <li><code>/fleet-finance/finance-lease</code></li>
+            <li><code>/fleet-finance/chattel-mortgage</code></li>
+            <li><code>/working-capital/business-overdraft</code></li>
+            <li><code>/working-capital/line-of-credit</code></li>
+            <li><code>/working-capital/invoice-finance</code></li>
+            <li><code>/working-capital/trade-finance</code></li>
+            <li><code>/property-loans/commercial-property-loan</code></li>
+            <li><code>/property-loans/self-employed-residential-loan</code></li>
+          </ul>
+        </div>
+
+        <div class="changelog-card">
+          <h3>Template & Query Policy Changes</h3>
+          <ul>
+            <li>Inventory template: <code>/inventory/{brand-slug}/{model-slug}</code></li>
+            <li>Brand landing template: <code>/inventory/{brand-slug}</code></li>
+            <li>Body type landing template: <code>/inventory/{body-slug}</code></li>
+            <li>Brand refinements remain query-based and canonicalized to brand landing.</li>
+            <li>Body-type refinements remain query-based and canonicalized to body landing.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Redirect map panel -->
+  <div class="tab-panel" id="panel-redirects">
+    <div class="redirect-wrap">
+      <div class="proposed-header">
+        <div class="eyebrow">Migration Notes</div>
+        <h1>Redirect Map</h1>
+        <div class="subtitle">Current URLs -> proposed structure (recommended redirect actions)</div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-pill"><strong>28</strong> current URLs mapped</div>
+        <div class="stat-pill"><strong>24</strong> redirects (301)</div>
+        <div class="stat-pill"><strong>4</strong> keep as-is</div>
+        <div class="stat-pill"><strong>1</strong> net-new URL (no redirect)</div>
+      </div>
+
+      <div class="redirect-table-wrap">
+        <table class="redirect-table">
+          <thead>
+            <tr>
+              <th>Current URL</th>
+              <th>New URL</th>
+              <th>Action</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>/</code></td><td><code>/</code></td><td><span class="rtype rkeep">Keep</span></td><td>Root unchanged</td></tr>
+            <tr><td><code>/vehicles</code></td><td><code>/popular-models</code></td><td><span class="rtype r301">301</span></td><td>Section replaced by dedicated landing</td></tr>
+            <tr><td><code>/vehicles/popular-models</code></td><td><code>/popular-models</code></td><td><span class="rtype r301">301</span></td><td>Flattened path</td></tr>
+            <tr><td><code>/deals</code></td><td><code>/deals</code></td><td><span class="rtype rkeep">Keep</span></td><td>Path retained in proposed structure</td></tr>
+            <tr><td><code>/deals/limited-time</code></td><td><code>/deals</code></td><td><span class="rtype r301">301</span></td><td>Flattened path</td></tr>
+            <tr><td><code>/resources</code></td><td><code>/blog</code></td><td><span class="rtype r301">301</span></td><td>Content hub migrated to blog</td></tr>
+            <tr><td><code>/resources/faqs</code></td><td><code>/faqs</code></td><td><span class="rtype r301">301</span></td><td>Flattened path</td></tr>
+            <tr><td><code>/resources/blogs</code></td><td><code>/blog</code></td><td><span class="rtype r301">301</span></td><td>Plural blog path consolidated</td></tr>
+            <tr><td><code>/resources/blogs/fbt-exempt-vehicles-in-australia-the-full-list-and-how-businesses-benefit</code></td><td><code>/blog/fbt-exempt-vehicles-in-australia-the-full-list-and-how-businesses-benefit</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/the-ultimate-guide-to-commercial-vehicle-leasing-for-australian-businesses</code></td><td><code>/blog/the-ultimate-guide-to-commercial-vehicle-leasing-for-australian-businesses</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/fleet-leasing-vs-buying-which-is-better-for-cash-flow-and-tax</code></td><td><code>/blog/fleet-leasing-vs-buying-which-is-better-for-cash-flow-and-tax</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/how-salary-packaging-a-vehicle-works-for-tradies-and-sole-traders</code></td><td><code>/blog/how-salary-packaging-a-vehicle-works-for-tradies-and-sole-traders</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/can-you-novated-lease-a-dual-cab-ute-everything-you-need-to-know</code></td><td><code>/blog/can-you-novated-lease-a-dual-cab-ute-everything-you-need-to-know</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/novated-lease-explained-how-australian-employees-can-drive-a-new-vehicle-tax-free</code></td><td><code>/blog/novated-lease-explained-how-australian-employees-can-drive-a-new-vehicle-tax-free</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/commercial-van-leasing-guide-choosing-the-right-van-for-your-trade</code></td><td><code>/blog/commercial-van-leasing-guide-choosing-the-right-van-for-your-trade</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/resources/blogs/hidden-costs-of-owning-a-work-ute-most-businesses-never-see-coming</code></td><td><code>/blog/hidden-costs-of-owning-a-work-ute-most-businesses-never-see-coming</code></td><td><span class="rtype r301">301</span></td><td>Blog URL migration</td></tr>
+            <tr><td><code>/products</code></td><td><code>/fleet-finance</code></td><td><span class="rtype r301">301</span></td><td>Primary finance hub</td></tr>
+            <tr><td><code>/products/fleet-finance</code></td><td><code>/fleet-finance</code></td><td><span class="rtype r301">301</span></td><td>Path consolidation</td></tr>
+            <tr><td><code>/products/business-finance</code></td><td><code>/working-capital</code></td><td><span class="rtype r301">301</span></td><td>Mapped to nearest new parent hub</td></tr>
+            <tr><td><code>/inventory</code></td><td><code>/inventory</code></td><td><span class="rtype rkeep">Keep</span></td><td>Section remains</td></tr>
+            <tr><td><code>/inventory/mazda-bt-50</code></td><td><code>/inventory/mazda/bt-50</code></td><td><span class="rtype r301">301</span></td><td>New slug pattern</td></tr>
+            <tr><td><code>/explore</code></td><td><code>/brands</code></td><td><span class="rtype r301">301</span></td><td>Replaced by brand directory page (routes to <code>/inventory/{brand-slug}</code>)</td></tr>
+            <tr><td><code>/explore-body</code></td><td><code>/body-types</code></td><td><span class="rtype r301">301</span></td><td>Replaced by body-type directory page (routes to <code>/inventory/{body-slug}</code>)</td></tr>
+            <tr><td><code>/about</code></td><td><code>/about</code></td><td><span class="rtype rkeep">Keep</span></td><td>Unchanged</td></tr>
+            <tr><td><code>/about/contact</code></td><td><code>/contact</code></td><td><span class="rtype r301">301</span></td><td>Flattened path</td></tr>
+            <tr><td><code>/wishlist</code></td><td><code>/favourites</code></td><td><span class="rtype r301">301</span></td><td>Path naming standardization</td></tr>
+            <tr><td><code>/services</code></td><td><code>/consultation</code></td><td><span class="rtype r301">301</span></td><td>CTA-driven replacement</td></tr>
+            <tr><td><code>/services/consultation</code></td><td><code>/consultation</code></td><td><span class="rtype r301">301</span></td><td>Flattened path</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
